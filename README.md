@@ -1,6 +1,6 @@
 # NextJS OpenJira App
 
-To run locally, is the DataBase is needed:
+To run locally, the DataBase is needed:
 
 ```
 docker-compose up -d

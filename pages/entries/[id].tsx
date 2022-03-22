@@ -21,7 +21,7 @@ interface Props {
 
 export const EntryPage: FC<Props> = ({ entry }) => {
 
-  const { updateEntry } = useContext(EntriesContext);
+  const { updateEntry, deleteEntry } = useContext(EntriesContext);
 
   const [inputValue, setInputValue] = useState(entry.description)
   const [status, setStatus] = useState<EntryStatus>(entry.status);
@@ -51,6 +51,14 @@ export const EntryPage: FC<Props> = ({ entry }) => {
     updateEntry(updatedEntry, true);
     router.push('/');
   };
+
+  const onDeleted = () => {
+    const entryToDelete: Entry = {
+      ...entry
+    }
+    deleteEntry(entryToDelete, true);
+    router.push('/');
+  }
 
   return (
     <Layout title={inputValue.substring(0, 20) + '...'}>
@@ -118,6 +126,7 @@ export const EntryPage: FC<Props> = ({ entry }) => {
 
       <IconButton
         sx={{ position: 'fixed', bottom: 30, right: 30, backgroundColor: 'error.dark' }}
+        onClick={onDeleted}
 
       >
         <DeleteOutlinedIcon />

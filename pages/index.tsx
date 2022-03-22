@@ -5,9 +5,6 @@ import { Layout } from '../components/layouts';
 import { EntryList, NewEntry } from '../components/ui';
 
 const HomePage: NextPage = () => {
-
-
-
   return (
     <Layout title='Home - OpenJira'>
       <NewEntry />
@@ -15,7 +12,6 @@ const HomePage: NextPage = () => {
         <Grid item xs={12} sm={4}>
           <Card sx={{ height: 'calc(200vh - 100px)' }}>
             <CardHeader title="Pending" />
-            {/* Agregar una nueva entrada */}
             <EntryList status='pending' />
           </Card>
         </Grid>
